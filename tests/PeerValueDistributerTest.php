@@ -10,8 +10,7 @@ class PeerValueDistributerTest extends PHPUnit_Framework_TestCase
         $blogs = json_decode($blogs, true);
 
         for ( $count = 2; $count < count($blogs); ++$count ) {
-            $distributer = new PeerValueDistributer($blogs, $count);
-            $assignments = $distributer->distribute();
+            $assignments = PeerValueDistributer::distribute($blogs, $count);
 
             foreach ( $blogs as $username => $post ) {
                 $this->assertArrayHasKey(

@@ -1,7 +1,7 @@
 <?php namespace jpuck;
 
 class PeerValueDistributer {
-    public function __construct(array $values, int $maxDistribution = 3)
+    public static function distribute(array $values, int $maxDistribution = 3) : array
     {
         if ( count($values) < 2 ) {
             throw new InvalidArgumentException(
@@ -14,10 +14,7 @@ class PeerValueDistributer {
                 "Must distribute at least 1 item to each peer."
             );
         }
-    }
 
-    public function distribute() : array
-    {
         return [];
     }
 }
