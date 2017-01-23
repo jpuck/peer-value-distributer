@@ -15,6 +15,44 @@ class PeerValueDistributer {
             );
         }
 
-        return [];
+        $max = count($values) - 1;
+        if ( $maxDistribution < $max ) {
+            $max = $maxDistribution;
+        }
+
+        static::shuffle_assoc($values);
+        foreach ( $values as $key => $value ) {
+            $index []= [$key => $value];
+        }
+        // do it twice to give wrap-around circular pseudo-functionality
+        foreach ( $values as $key => $value ) {
+            $index []= [$key => $value];
+        }
+
+        $j = 0;
+        while ( $max-- ) {
+            $i = 0 + $j;
+            foreach ( $values as $key => $value ) {
+                $distribution[$key] = array_merge($distribution[$key] ?? [], $index[++$i]);
+            }
+            $j++;
+        }
+
+        return $distribution ?? [];
+    }
+
+    // http://php.net/manual/en/function.shuffle.php#94697
+    public static function shuffle_assoc(&$array) {
+        $keys = array_keys($array);
+
+        shuffle($keys);
+
+        foreach($keys as $key) {
+            $new[$key] = $array[$key];
+        }
+
+        $array = $new;
+
+        return true;
     }
 }
