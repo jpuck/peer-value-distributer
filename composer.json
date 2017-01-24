@@ -1,6 +1,6 @@
 {
 	"name": "jpuck/peer-value-distributer",
-	"description": "Given a list of key-value pairs, randomly distribute values to other keys evenly.",
+	"description": "Given an array, return a new array with the same keys and values randomly distributed evenly amongst the peers in the specified batch quantity.",
 	"license": "GPL-3.0+",
 	"authors": [
 		{
