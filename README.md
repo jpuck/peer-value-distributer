@@ -17,7 +17,7 @@ Branch      | Status
 
 Registered on [packagist][6] for easy installation using [composer][5].
 
-    composer require --no-dev jpuck/peer-value-distributer
+    composer require jpuck/peer-value-distributer
 
 ## Example
 
