@@ -1,11 +1,23 @@
 # Peer Value Distributer
 
-Given an array, return a new array with the same keys and values randomly
-distributed evenly amongst the peers in the specified batch quantity.
+*Given an array, return a new array with the same keys and values distributed
+randomly and evenly amongst the peers in the specified batch quantity.*
 
-For example, say you have a group of 15 blog authors. You want each author to
-read and review 3 of their peers' work. This function will randomly assign each
-author 3 of its peers such that every author is reviewed exactly 3 times.
+For example, say you have a group of 15 book authors. You want each author to
+review 3 of their peers' work. This function will randomly assign each
+author 3 of its peers to read.
+
+* Every book is reviewed exactly 3 times.
+* No one will review any book more than once.
+* No one will review their own book.
+
+The natural maximum distribution count is `n-1`
+so if you specify a count larger than that,
+it will be ignored and the largest possible count will be used instead.
+
+e.g. if you distribute those 15 books with a count of 20,
+it will be ignored and instead every author will be assigned the maximum
+of 14 peer books to review.
 
 Branch      | Status
 ----------- | ------
@@ -26,7 +38,7 @@ Registered on [packagist][6] for easy installation using [composer][5].
 
 use jpuck\PeerValueDistributer;
 
-$works = [
+$books = [
     'John' => 'The Book of John',
     'Jane' => 'A Work by Jane',
     'Jeff' => 'Readings from Jeff',
@@ -34,7 +46,7 @@ $works = [
     'Jena' => 'Writing with Jena',
 ];
 
-print_r(PeerValueDistributer::distribute($works, $count = 3));
+print_r( PeerValueDistributer::distribute($books, $count = 3) );
 ```
 
 Output:
