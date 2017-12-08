@@ -1,7 +1,9 @@
 # Peer Value Distributer
 
-*Given an array, return a new array with the same keys and values distributed
-randomly and evenly amongst the peers in the specified batch quantity.*
+Given an array, return a new array with the same keys and values distributed
+randomly and evenly amongst the peers in the specified batch quantity.
+
+[![Build Status][3]][2] [![Codecov][8]][7]
 
 For example, say you have a group of 15 book authors. You want each author to
 review 3 of their peers' work. This function will randomly assign each
@@ -19,14 +21,6 @@ e.g. if you distribute those 15 books with a count of 20,
 it will be ignored and instead every author will be assigned the maximum
 of 14 peer books to review.
 
-Branch      | Status
------------ | ------
-[master][1] | [![Build Status][3]][2] [![Codecov][8]][7]
-
-[![License][11]][10]
-[![Total Downloads][12]][10]
-[![Latest Stable Version][9]][10]
-
 Registered on [packagist][6] for easy installation using [composer][5].
 
     composer require jpuck/peer-value-distributer
@@ -34,8 +28,6 @@ Registered on [packagist][6] for easy installation using [composer][5].
 ## Example
 
 ```php
-<?php require __DIR__.'/vendor/autoload.php';
-
 use jpuck\PeerValueDistributer;
 
 $books = [
